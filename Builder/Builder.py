@@ -6,41 +6,41 @@ O padrão builder se refere à uma classe que instancia outras classes através 
 class Aluno:
     def __init__(self):
         self.__cadastro = None
-        self.__registro = None
+        self.__pontoFocal = None
 
     def alunoInformacoes(self):
-        print("matricula: "+self.__cadastro.matricula)
-        print("CPF      : "+self.__registro.CPF)
+        print("Matricula  : "+self.__cadastro.matricula)
+        print("Ponto Focal: "+self.__pontoFocal.pf)
 
     def setCadastro(self, Cadastro):
         self.__cadastro = Cadastro
 
-    def setRegistro(self, Registro):
-        self.__registro = Registro
+    def setPontoFocal(self, Registro):
+        self.__pontoFocal = Registro
 
 class Cadastro:
     matricula = None
 
-class Registro:
-    CPF = None
+class PontoFocal:
+    pf = None
 
 class Builder:
     def getCadastro(self):
         pass
-    def getRegistro(self):
+    def getPontoFocal(self):
         pass
 
-class AlunoBuilder(Builder):
+class AlunoIFCEBuilder(Builder):
 
     def getCadastro(self):
         cadastro = Cadastro()
         cadastro.matricula = "123456789"
         return cadastro
 
-    def getRegistro(self):
-        registro = Registro()
-        registro.CPF = "123456789"
-        return registro
+    def getPontoFocal(self):
+        pontoFocal = PontoFocal()
+        pontoFocal.pf = "IFCE"
+        return pontoFocal
 
 class Director:
     __builder = None
@@ -52,13 +52,13 @@ class Director:
         aluno = Aluno()
 
         aluno.setCadastro(self.__builder.getCadastro())
-        aluno.setRegistro(self.__builder.getRegistro())
+        aluno.setPontoFocal(self.__builder.getPontoFocal())
 
         return aluno
 
 if __name__ == "__main__":
-    alunoBuilder = AlunoBuilder()
+    alunoIFCEBuilder = AlunoIFCEBuilder()
     montador = Director()
-    montador.setBuilder(alunoBuilder)
+    montador.setBuilder(alunoIFCEBuilder)
     aluno = montador.construct()
     aluno.alunoInformacoes()
