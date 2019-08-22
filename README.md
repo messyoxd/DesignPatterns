@@ -1,2 +1,2 @@
-# DesignPyttern
-Design Patterns on python
+# DesignPatterns
+Implementarion of some design patterns
