@@ -1,5 +1,5 @@
-
-class ChainOfResponsability:
+import abc
+class ChainOfResponsability(metaclass=abc.ABCMeta):
 
     def checa_enumeration(self, dado, enum):
         for item in enum:
@@ -7,5 +7,6 @@ class ChainOfResponsability:
                 return item[0]
         return None
 
+    @abc.abstractmethod
     def handle(self):
         pass
