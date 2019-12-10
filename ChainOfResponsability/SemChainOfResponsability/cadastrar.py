@@ -88,9 +88,7 @@ class Cadastrar:
     def __init__(self, path):
         self._path = path
         self._df = self.ler_arquivo()
-        print(self._df)
         self._campos = self.ler_labels()
-        print(self._campos)
         self._lista_de_pessoas = []
         self.cadastrar()
 
