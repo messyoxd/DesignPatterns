@@ -1,5 +1,6 @@
-import abc
+""" Implementação usando o padrão Builder """
 
+import abc
 
 class Festa:
 

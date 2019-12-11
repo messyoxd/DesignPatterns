@@ -1,5 +1,5 @@
+""" Implementação com Fluent Interface """
 import abc
-
 
 class Festa:
 
